@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0"
+	xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.github.adamusak.adventura.ui.HomeController">
+	<columnConstraints>
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+			prefWidth="100.0" />
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+			prefWidth="100.0" />
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+			prefWidth="100.0" />
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints vgrow="NEVER" />
+		<RowConstraints minHeight="10.0" prefHeight="30.0"
+			valignment="CENTER" vgrow="ALWAYS" />
+		<RowConstraints vgrow="NEVER" />
+		<RowConstraints vgrow="NEVER" />
+	</rowConstraints>
+	<children>
+		<MenuBar GridPane.columnSpan="2147483647">
+			<menus>
+				<Menu mnemonicParsing="false" text="Hra">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Nová hra" />
+						<MenuItem mnemonicParsing="false" text="Konec Hry" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Nápověda">
+					<items>
+						<MenuItem mnemonicParsing="false" text="O hře" />
+						<MenuItem mnemonicParsing="false" text="Nápověda" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<AnchorPane prefHeight="200.0" prefWidth="200.0"
+			GridPane.rowIndex="1">
+			<children>
+				<ImageView fitHeight="180.0" pickOnBounds="true"
+					preserveRatio="true">
+					<image>
+						<Image url="@herniPlan.png" />
+					</image>
+					<cursor>
+						<Cursor fx:constant="CROSSHAIR" />
+					</cursor>
+				</ImageView>
+				<ImageView fx:id="uzivatel" fitHeight="42.0" fitWidth="54.0"
+					layoutX="20.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@Troll-face.sh.png" />
+					</image>
+				</ImageView>
+			</children>
+		</AnchorPane>
+		<VBox alignment="CENTER" GridPane.rowIndex="2">
+			<children>
+				<Label contentDisplay="CENTER" text="Východy" textAlignment="CENTER">
+					<font>
+						<Font name="Segoe UI" size="16.0" />
+					</font>
+				</Label>
+				<JFXListView fx:id="seznamVychodu" prefHeight="200.0"
+					prefWidth="200.0" VBox.vgrow="NEVER">
+					<contextMenu>
+						<ContextMenu>
+							<items>
+								<MenuItem mnemonicParsing="false" text="Jdi" />
+							</items>
+						</ContextMenu>
+					</contextMenu>
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</JFXListView>
+			</children>
+			<GridPane.margin>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</GridPane.margin>
+		</VBox>
+		<VBox alignment="CENTER" GridPane.columnIndex="1"
+			GridPane.rowIndex="2">
+			<children>
+				<Label contentDisplay="CENTER" text="Batoh" textAlignment="CENTER">
+					<font>
+						<Font name="Segoe UI" size="16.0" />
+					</font>
+				</Label>
+				<JFXListView prefHeight="200.0" prefWidth="200.0"
+					VBox.vgrow="NEVER">
+					<contextMenu>
+						<ContextMenu>
+							<items>
+								<MenuItem mnemonicParsing="false" text="Polož" />
+							</items>
+						</ContextMenu>
+					</contextMenu>
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</JFXListView>
+			</children>
+			<GridPane.margin>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</GridPane.margin>
+		</VBox>
+		<VBox alignment="CENTER" GridPane.columnIndex="2"
+			GridPane.rowIndex="2">
+			<children>
+				<Label contentDisplay="CENTER" text="Věci v místnosti"
+					textAlignment="CENTER">
+					<font>
+						<Font name="Segoe UI" size="16.0" />
+					</font>
+				</Label>
+				<JFXListView fx:id="seznamVeciMistnost" prefHeight="200.0"
+					prefWidth="200.0" VBox.vgrow="NEVER">
+					<contextMenu>
+						<ContextMenu>
+							<items>
+								<MenuItem mnemonicParsing="false" text="Seber" />
+							</items>
+						</ContextMenu>
+					</contextMenu>
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</JFXListView>
+			</children>
+			<GridPane.margin>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</GridPane.margin>
+		</VBox>
+		<VBox GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+			<children>
+				<JFXTextField fx:id="vstupniText" labelFloat="true"
+					onAction="#odesliPrikaz" promptText="Zadej příkaz">
+					<font>
+						<Font name="Segoe UI Semibold" size="16.0" />
+					</font>
+				</JFXTextField>
+			</children>
+			<GridPane.margin>
+				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+			</GridPane.margin>
+		</VBox>
+		<TextArea fx:id="vystup" editable="false"
+			GridPane.columnIndex="1" GridPane.columnSpan="2147483647"
+			GridPane.rowIndex="1">
+			<GridPane.margin>
+				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+			</GridPane.margin>
+		</TextArea>
+	</children>
+</GridPane>
