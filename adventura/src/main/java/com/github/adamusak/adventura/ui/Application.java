@@ -46,7 +46,6 @@ public class Application extends javafx.application.Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("Home.fxml"));
 		Parent root = loader.load();
@@ -54,7 +53,7 @@ public class Application extends javafx.application.Application {
 		HomeController controller = loader.getController();
 		controller.inicializuj(new Hra());
 
-		primaryStage.setTitle("title");
+		primaryStage.setTitle("Adventura");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 

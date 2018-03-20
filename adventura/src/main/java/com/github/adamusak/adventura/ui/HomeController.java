@@ -9,10 +9,9 @@ import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
 import com.github.adamusak.adventura.logika.Vec;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
@@ -27,7 +26,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	private JFXTextField vstupniText;
 	@FXML
-	private TextArea vystup;
+	private JFXTextArea vystup;
 	@FXML
 	private JFXListView<Vec> seznamVeciMistnost;
 	@FXML
@@ -43,11 +42,12 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	public void odesliPrikaz() {
 		String vystupPrikazu = hra.zpracujPrikaz(vstupniText.getText());
-		vystup.appendText("\n----------\n" + vstupniText.getText() + "\n----------\n");
+		vystup.appendText("\n\n-------" + vstupniText.getText() + "-------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
+		
 		if (hra.konecHry()) {
-			vystup.appendText("\n----------\nKonec hry\n----------\n");
+			vystup.appendText("\n\n-------Konec hry-------\n");
 			vstupniText.setDisable(true);
 		}
 	}
