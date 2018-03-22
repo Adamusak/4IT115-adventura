@@ -44,7 +44,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.github.adamusak.adventura.main.Start</mainClass>
+							<mainClass>com.github.adamusak.adventura.ui.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
