@@ -49,14 +49,12 @@ public class Application extends javafx.application.Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("Home.fxml"));
 		Parent root = loader.load();
-
 		HomeController controller = loader.getController();
 		controller.inicializuj(new Hra());
-
 		primaryStage.setTitle("Adventura");
-		primaryStage.setScene(new Scene(root));
+		primaryStage.setMinWidth(350);
+        primaryStage.setMinHeight(350);
+        primaryStage.setScene(new Scene(root));
 		primaryStage.show();
-
 	}
-
 }

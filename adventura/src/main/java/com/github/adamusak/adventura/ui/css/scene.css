@@ -1,0 +1,34 @@
+* {
+   -fx-c1: #FFFFFF; /*bila*/
+   -fx-c2: #CCCC99; /*zlata*/
+   -fx-c3: #003366; /*modra*/
+   -fx-c4: #D6D6D6; /*seda*/
+   -fx-c5: #EFEFEF; /*tmaveseda*/
+}
+
+#scene{
+	-fx-background-color:-fx-c1;
+}
+
+.jfx-list-view{
+	-fx-border-color:-fx-c1;
+	-fx-focus-color: -fx-c1;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: -fx-c1;
+}
+
+.list-cell { 
+    -fx-background-color: -fx-c4;
+}
+
+.list-cell:even { 
+    -fx-background-color: -fx-c5;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: -fx-c2;
+    -fx-text-fill: -fx-c1;
+}

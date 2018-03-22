@@ -60,6 +60,7 @@ public class HomeController extends GridPane implements Observer {
 	 *            spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
+		//scene.getStylesheets().add(getClass().getResource("css/scene.css").toExternalForm());
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;

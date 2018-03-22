@@ -50,9 +50,17 @@ public class HerniPlan extends Observable {
 		chaloupka.setVychod(hlubokyLes);
 
 		aktualniProstor = domecek; // hra začíná v domečku
-		viteznyProstor = chaloupka;
-		les.vlozVec(new Vec("maliny", true)); // parametry (název, přenositelnost¨)
-		les.vlozVec(new Vec("strom", false));
+		viteznyProstor = chaloupka; // hra končí v chaloupce
+		les.vlozVec(new Vec("strom", false)); // parametry (název, přenositelnost)
+		les.vlozVec(new Vec("maliny", true));
+		les.vlozVec(new Vec("ostružiny", true));
+		les.vlozVec(new Vec("borůvky", true));
+		les.vlozVec(new Vec("jahody", true));
+		hlubokyLes.vlozVec(new Vec("kapradí", true));
+		hlubokyLes.vlozVec(new Vec("houby", true));
+		hlubokyLes.vlozVec(new Vec("borůvky", true));
+		domecek.vlozVec(new Vec("košík", true));
+		domecek.vlozVec(new Vec("buchty", true));
 	}
 
 	/**
