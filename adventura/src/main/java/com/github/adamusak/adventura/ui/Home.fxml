@@ -35,7 +35,7 @@
          <children>
             <HBox id="Header" fx:id="Header" prefHeight="30.0" prefWidth="200.0">
                <children>
-      						<JFXHamburger id="HeaderHamburger" fx:id="hamburger" alignment="CENTER" maxHeight="30.0" maxWidth="35.0" onMouseClicked="#Menu" prefHeight="30.0" prefWidth="35.0">
+      						<JFXHamburger id="HeaderHamburger" fx:id="hamburger" alignment="CENTER" maxHeight="30.0" maxWidth="35.0" prefHeight="30.0" prefWidth="35.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -61,7 +61,7 @@
             </HBox>
       		
       		
-      		<JFXDrawer id="MenuDrawer" fx:id="drawer" defaultDrawerSize="40.0" direction="BOTTOM" layoutY="-40.0" maxHeight="40.0" minHeight="40.0" onDrawerClosing="#MenuClose" onDrawerOpening="#MenuOpen" overLayVisible="false" pickOnBounds="false" prefHeight="40.0">
+      		<JFXDrawer id="MenuDrawer" fx:id="drawer" defaultDrawerSize="40.0" direction="BOTTOM" layoutY="-40.0" maxHeight="40.0" minHeight="40.0" overLayVisible="false" pickOnBounds="false" prefHeight="40.0">
                <children>
                   <HBox id="Menu" alignment="CENTER" prefHeight="40.0" prefWidth="1180.0">
                      <children>
@@ -120,7 +120,7 @@
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem mnemonicParsing="false" text="Seber" />
+										<MenuItem mnemonicParsing="false" onAction="#Seber" text="Seber" />
 									</items>
 								</ContextMenu>
 							</contextMenu>
@@ -144,7 +144,7 @@
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem mnemonicParsing="false" text="Jdi" />
+										<MenuItem onAction="#Jdi" mnemonicParsing="false" text="Jdi" />
 									</items>
 								</ContextMenu>
 							</contextMenu>

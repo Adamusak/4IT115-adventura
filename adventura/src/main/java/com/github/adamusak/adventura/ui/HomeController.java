@@ -59,8 +59,21 @@ public class HomeController extends GridPane implements Observer {
 			vstupniText.setDisable(true);
 		}
 	}
-
-	
+	@FXML
+	public void Seber() {
+		String input = ("seber " + seznamVeciMistnost.selectionModelProperty().get().getSelectedItem().toString());
+		String vystupPrikazu = hra.zpracujPrikaz(input);
+		vystup.appendText("\n\n-------" + input + "-------\n");
+		vystup.appendText(vystupPrikazu);
+	}
+	@FXML
+	public void Jdi() {
+		String input = ("jdi " + seznamVychodu.selectionModelProperty().get().getSelectedItem().toString());
+		String vystupPrikazu = hra.zpracujPrikaz(input);
+		vystup.appendText("\n\n-------" + input + "-------\n");
+		vystup.appendText(vystupPrikazu);
+	}
+	/*
 	@FXML
 	public void Menu() {
 			
@@ -85,7 +98,7 @@ public class HomeController extends GridPane implements Observer {
 			//drawer.setDefaultDrawerSize(0);
 			//drawer.setOpacity(100);
 	}
-	
+	*/
 	
 
 	/**
