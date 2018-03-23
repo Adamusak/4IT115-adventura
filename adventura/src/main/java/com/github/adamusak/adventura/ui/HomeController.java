@@ -63,20 +63,21 @@ public class HomeController extends GridPane implements Observer {
 	
 	@FXML
 	public void Menu() {
-			System.out.println("klik");
+			
 			
 			if (drawer.isVisible()) {
-				drawer.setDefaultDrawerSize(0);
+				//drawer.setDefaultDrawerSize(0);
+				//System.out.println("0");
 			}
 			else {
-				drawer.setDefaultDrawerSize(150);
-				
+				//drawer.setDefaultDrawerSize(40);
+				//System.out.println("40");
 			}
 	}
 	
 	@FXML
 	public void MenuOpen() {
-			//drawer.setDefaultDrawerSize(150);
+			//drawer.setDefaultDrawerSize(40);
 			//drawer.setOpacity(0);
 	}
 	@FXML

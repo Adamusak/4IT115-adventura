@@ -52,8 +52,8 @@ public class Application extends javafx.application.Application {
 		HomeController controller = loader.getController();
 		controller.inicializuj(new Hra());
 		primaryStage.setTitle("Adventura");
-		primaryStage.setMinWidth(350);
-        primaryStage.setMinHeight(350);
+		primaryStage.setMinWidth(300);
+        primaryStage.setMinHeight(300);
         primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 	}
