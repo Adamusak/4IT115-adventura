@@ -8,11 +8,15 @@ import java.util.Observer;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
 import com.github.adamusak.adventura.logika.Vec;
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -33,6 +37,10 @@ public class HomeController extends GridPane implements Observer {
 	private JFXListView<Prostor> seznamVychodu;
 	@FXML
 	private ImageView uzivatel;
+	@FXML
+	private JFXHamburger hamburger;
+	@FXML
+	JFXDrawer drawer;
 
 	private IHra hra;
 
@@ -45,12 +53,39 @@ public class HomeController extends GridPane implements Observer {
 		vystup.appendText("\n\n-------" + vstupniText.getText() + "-------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
-		
+
 		if (hra.konecHry()) {
 			vystup.appendText("\n\n-------Konec hry-------\n");
 			vstupniText.setDisable(true);
 		}
 	}
+
+	
+	@FXML
+	public void Menu() {
+			System.out.println("klik");
+			
+			if (drawer.isVisible()) {
+				drawer.setDefaultDrawerSize(0);
+			}
+			else {
+				drawer.setDefaultDrawerSize(150);
+				
+			}
+	}
+	
+	@FXML
+	public void MenuOpen() {
+			//drawer.setDefaultDrawerSize(150);
+			//drawer.setOpacity(0);
+	}
+	@FXML
+	public void MenuClose() {
+			//drawer.setDefaultDrawerSize(0);
+			//drawer.setOpacity(100);
+	}
+	
+	
 
 	/**
 	 * Metoda bude soužit pro předání objektu se spuštěnou hrou kontroleru a zobrazí
@@ -60,7 +95,8 @@ public class HomeController extends GridPane implements Observer {
 	 *            spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
-		//scene.getStylesheets().add(getClass().getResource("css/scene.css").toExternalForm());
+		// scene.getStylesheets().add(getClass().getResource("css/scene.css").toExternalForm());
+		drawer.open();
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;
@@ -69,6 +105,18 @@ public class HomeController extends GridPane implements Observer {
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		hra.getHerniPlan().addObserver(this);
+		
+		/*Nastavení animace pro menu ikony*/
+		HamburgerBasicCloseTransition transition = new HamburgerBasicCloseTransition(hamburger);
+		transition.setRate(-1);
+		hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
+		        transition.setRate(transition.getRate()*-1);
+		        transition.play();
+		        drawer.toggle();
+		        //drawer.setDefaultDrawerSize(0);
+		});
+		
+		
 	}
 
 	@Override
