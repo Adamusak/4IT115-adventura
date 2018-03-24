@@ -70,17 +70,34 @@ public class HomeController extends GridPane implements Observer {
 	}
 	@FXML
 	public void Seber() {
-		String input = ("seber " + seznamVeciMistnost.selectionModelProperty().get().getSelectedItem().toString());
-		String vystupPrikazu = hra.zpracujPrikaz(input);
-		vystup.appendText("\n\n-------" + input + "-------\n");
-		vystup.appendText(vystupPrikazu);
+		Vec koho = seznamVeciMistnost.getSelectionModel().getSelectedItem();
+		if (koho == null) {
+			String vystupPrikazu = hra.zpracujPrikaz("seber");
+			vystup.appendText("\n\n-------seber-------\n");
+			vystup.appendText(vystupPrikazu);
+		}
+		else {
+			String input = ("seber " + seznamVeciMistnost.selectionModelProperty().get().getSelectedItem().toString());
+			String vystupPrikazu = hra.zpracujPrikaz(input);
+			vystup.appendText("\n\n-------" + input + "-------\n");
+			vystup.appendText(vystupPrikazu);
+		};
+		
 	}
 	@FXML
 	public void Jdi() {
-		String input = ("jdi " + seznamVychodu.selectionModelProperty().get().getSelectedItem().toString());
-		String vystupPrikazu = hra.zpracujPrikaz(input);
-		vystup.appendText("\n\n-------" + input + "-------\n");
-		vystup.appendText(vystupPrikazu);
+		Prostor kam = seznamVychodu.getSelectionModel().getSelectedItem();
+		if (kam == null) {
+			String vystupPrikazu = hra.zpracujPrikaz("jdi");
+			vystup.appendText("\n\n-------jdi-------\n");
+			vystup.appendText(vystupPrikazu);
+		}
+		else {
+			String input = ("jdi " + seznamVychodu.selectionModelProperty().get().getSelectedItem().toString());
+			String vystupPrikazu = hra.zpracujPrikaz(input);
+			vystup.appendText("\n\n-------" + input + "-------\n");
+			vystup.appendText(vystupPrikazu);
+		}
 	}
 	@FXML
 	public void Napoveda() {
