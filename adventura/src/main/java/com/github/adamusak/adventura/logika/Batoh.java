@@ -37,7 +37,7 @@ public class Batoh {
 	public String nazvyVeci() {
 		String nazvy = "věci v batohu: ";
 		for (String jmenoVeci : seznamVeci.keySet()) {
-			nazvy += jmenoVeci + " ";
+			nazvy += jmenoVeci + ", ";
 		}
 		return nazvy;
 	}

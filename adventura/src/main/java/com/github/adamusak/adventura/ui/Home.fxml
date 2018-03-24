@@ -70,7 +70,7 @@
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" accessibleText="Slouží k zobrazení nápovědy ke hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nápověda" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="Napoveda" accessibleText="Slouží k zobrazení nápovědy ke hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" onAction="#Napoveda" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nápověda" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
@@ -144,7 +144,7 @@
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem onAction="#Jdi" mnemonicParsing="false" text="Jdi" />
+										<MenuItem mnemonicParsing="false" onAction="#Jdi" text="Jdi" />
 									</items>
 								</ContextMenu>
 							</contextMenu>
@@ -164,7 +164,7 @@
 								<Font name="Segoe UI" size="16.0" />
 							</font>
 						</Label>
-						<JFXListView depth="5" prefHeight="280.0" prefWidth="280.0" verticalGap="10.0" VBox.vgrow="NEVER">
+						<JFXListView fx:id="Batoh" depth="5" prefHeight="280.0" prefWidth="280.0" verticalGap="10.0" VBox.vgrow="NEVER">
 							<contextMenu>
 								<ContextMenu>
 									<items>
