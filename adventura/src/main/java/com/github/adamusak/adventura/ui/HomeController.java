@@ -2,10 +2,9 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.ui;
 
-import java.awt.event.ActionEvent;
 import java.util.Observable;
 import java.util.Observer;
-
+import com.github.adamusak.adventura.logika.Hra;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
 import com.github.adamusak.adventura.logika.Vec;
@@ -17,6 +16,9 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -49,6 +51,8 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	public JFXButton KonecHry;
 	@FXML
+	public JFXButton NovaHra;
+	@FXML
 	JFXDrawer drawer;
 
 	private IHra hra;
@@ -68,6 +72,7 @@ public class HomeController extends GridPane implements Observer {
 			vstupniText.setDisable(true);
 		}
 	}
+
 	@FXML
 	public void Seber() {
 		Vec koho = seznamVeciMistnost.getSelectionModel().getSelectedItem();
@@ -75,15 +80,16 @@ public class HomeController extends GridPane implements Observer {
 			String vystupPrikazu = hra.zpracujPrikaz("seber");
 			vystup.appendText("\n\n-------seber-------\n");
 			vystup.appendText(vystupPrikazu);
-		}
-		else {
+		} else {
 			String input = ("seber " + seznamVeciMistnost.selectionModelProperty().get().getSelectedItem().toString());
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
 			vystup.appendText(vystupPrikazu);
-		};
-		
+		}
+		;
+
 	}
+
 	@FXML
 	public void Jdi() {
 		Prostor kam = seznamVychodu.getSelectionModel().getSelectedItem();
@@ -91,28 +97,27 @@ public class HomeController extends GridPane implements Observer {
 			String vystupPrikazu = hra.zpracujPrikaz("jdi");
 			vystup.appendText("\n\n-------jdi-------\n");
 			vystup.appendText(vystupPrikazu);
-		}
-		else {
+		} else {
 			String input = ("jdi " + seznamVychodu.selectionModelProperty().get().getSelectedItem().toString());
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
 			vystup.appendText(vystupPrikazu);
 		}
 	}
+
 	@FXML
 	public void Napoveda() {
-		/*String input = ("napoveda");
-		String vystupPrikazu = hra.zpracujPrikaz(input);
-		vystup.appendText("\n\n-------" + input + "-------\n");
-		vystup.appendText(vystupPrikazu);
-		
-		HamburgerBasicCloseTransition zavrit = new HamburgerBasicCloseTransition(hamburger);
-		zavrit.setRate(0);
-
-		zavrit.play();
-		drawer.toggle();*/
+		/*
+		 * String input = ("napoveda"); String vystupPrikazu = hra.zpracujPrikaz(input);
+		 * vystup.appendText("\n\n-------" + input + "-------\n");
+		 * vystup.appendText(vystupPrikazu);
+		 * 
+		 * HamburgerBasicCloseTransition zavrit = new
+		 * HamburgerBasicCloseTransition(hamburger); zavrit.setRate(0);
+		 * 
+		 * zavrit.play(); drawer.toggle();
+		 */
 	}
-
 
 	/**
 	 * Metoda bude soužit pro předání objektu se spuštěnou hrou kontroleru a zobrazí
@@ -132,32 +137,55 @@ public class HomeController extends GridPane implements Observer {
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		hra.getHerniPlan().addObserver(this);
-		
-		/*Nastavení animace pro menu ikony*/
+
+		/* Nastavení animace pro menu ikony */
 		HamburgerBasicCloseTransition transition = new HamburgerBasicCloseTransition(hamburger);
 		transition.setRate(-1);
-		hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
-		        transition.setRate(transition.getRate()*-1);
-		        transition.play();
-		        drawer.toggle();
+		hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+			transition.setRate(transition.getRate() * -1);
+			transition.play();
+			drawer.toggle();
 		});
-		
-		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
+		/* Přidání funkcí tlačítkům */
+		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			String input = ("napoveda");
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
 			vystup.appendText(vystupPrikazu);
-			transition.setRate(transition.getRate()*-1);
-	        transition.play();
-	        drawer.toggle();
-	});
-		
-		KonecHry.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
+			transition.setRate(transition.getRate() * -1);
+			transition.play();
+			drawer.toggle();
+		});
+
+		NovaHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+			try {
+				NoveOkno();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+
+		KonecHry.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			Stage stage = (Stage) KonecHry.getScene().getWindow();
-		    stage.close();
-	});
-		
-		
+			stage.close();
+		});
+	}
+
+	public void NoveOkno() throws Exception {
+		Stage stage = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("Home.fxml"));
+		Parent root = loader.load();
+		HomeController controller = loader.getController();
+		controller.inicializuj(new Hra());
+		stage.setTitle("Adventura");
+		stage.setMinWidth(300);
+		stage.setMinHeight(300);
+		stage.setScene(new Scene(root));
+		Stage stageold = (Stage) KonecHry.getScene().getWindow();
+		stage.show();
+		stageold.close();
 	}
 
 	@Override
