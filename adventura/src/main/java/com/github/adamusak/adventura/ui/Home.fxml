@@ -60,7 +60,6 @@
                </padding>
             </HBox>
       		
-      		
       		<JFXDrawer id="MenuDrawer" fx:id="drawer" defaultDrawerSize="40.0" direction="BOTTOM" layoutY="-40.0" maxHeight="40.0" minHeight="40.0" overLayVisible="false" pickOnBounds="false" prefHeight="40.0">
                <children>
                   <HBox id="Menu" alignment="CENTER" prefHeight="40.0" prefWidth="1180.0">

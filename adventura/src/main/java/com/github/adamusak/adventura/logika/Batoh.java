@@ -35,7 +35,7 @@ public class Batoh {
 	 * @return řetězec názvů
 	 */
 	public String nazvyVeci() {
-		String nazvy = "věci v batohu: ";
+		String nazvy = "Věci v batohu: ";
 		for (String jmenoVeci : seznamVeci.keySet()) {
 			nazvy += jmenoVeci + ", ";
 		}
