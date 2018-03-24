@@ -2,6 +2,7 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.ui;
 
+import java.awt.event.ActionEvent;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -19,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 /**
  * Kontroler, který zprostředkovává komunikaci mezi grafikou a logikou adventury
@@ -44,6 +46,8 @@ public class HomeController extends GridPane implements Observer {
 	private JFXHamburger hamburger;
 	@FXML
 	private JFXButton Napoveda;
+	@FXML
+	public JFXButton KonecHry;
 	@FXML
 	JFXDrawer drawer;
 
@@ -130,6 +134,13 @@ public class HomeController extends GridPane implements Observer {
 	        transition.play();
 	        drawer.toggle();
 	});
+		
+		KonecHry.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
+			Stage stage = (Stage) KonecHry.getScene().getWindow();
+		    stage.close();
+	});
+		
+		
 	}
 
 	@Override

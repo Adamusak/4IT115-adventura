@@ -79,7 +79,7 @@
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="KonecHry" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
