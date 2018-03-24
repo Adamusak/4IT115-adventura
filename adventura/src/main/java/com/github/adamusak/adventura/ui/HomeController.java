@@ -50,6 +50,8 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	private JFXButton Napoveda;
 	@FXML
+	private JFXButton InfoHra;
+	@FXML
 	public JFXButton KonecHry;
 	@FXML
 	public JFXButton NovaHra;
@@ -106,30 +108,6 @@ public class HomeController extends GridPane implements Observer {
 		}
 	}
 
-	@FXML
-	public void Napoveda() {
-		/* zobrazení v textarea */
-		String input = ("napoveda");
-		String vystupPrikazu = hra.zpracujPrikaz(input);
-		vystup.appendText("\n\n-------" + input + "-------\n");
-		vystup.appendText(vystupPrikazu);
-		HamburgerBasicCloseTransition zavrit = new HamburgerBasicCloseTransition(hamburger);
-		zavrit.setRate(0);
-		zavrit.play();
-		drawer.toggle();
-		/* zobrazení v html */
-		Stage stage = new Stage();
-		stage.setTitle("Nápověda");
-		WebView webview = new WebView();
-		webview.getEngine().load(Application.class.getResource("html/napoveda.html").toExternalForm());
-		stage.setScene(new Scene(webview, 720, 480));
-		stage.setMinWidth(720);
-		stage.setMinHeight(480);
-		stage.setMaxWidth(720);
-		stage.setMaxHeight(480);
-		stage.show();
-	}
-
 	/**
 	 * Metoda bude soužit pro předání objektu se spuštěnou hrou kontroleru a zobrazí
 	 * stav hry v grafice.
@@ -138,7 +116,6 @@ public class HomeController extends GridPane implements Observer {
 	 *            spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
-		// scene.getStylesheets().add(getClass().getResource("css/scene.css").toExternalForm());
 		drawer.open();
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
@@ -159,13 +136,51 @@ public class HomeController extends GridPane implements Observer {
 		});
 		/* Přidání funkcí tlačítkům */
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+			/*skrytí menu*/
+			transition.setRate(transition.getRate() * -1);
+			transition.play();
+			drawer.toggle();
+			
+			/* zobrazení v textarea */
 			String input = ("napoveda");
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
 			vystup.appendText(vystupPrikazu);
+			/*HamburgerBasicCloseTransition zavrit = new HamburgerBasicCloseTransition(hamburger);
+			zavrit.setRate(-1);
+			zavrit.play();
+			drawer.toggle();*/
+			
+			
+			/* zobrazení v html */
+			Stage stage = new Stage();
+			stage.setTitle("Nápověda");
+			WebView webview = new WebView();
+			webview.getEngine().load(Application.class.getResource("html/napoveda.html").toExternalForm());
+			stage.setScene(new Scene(webview, 720, 480));
+			stage.setMinWidth(720);
+			stage.setMinHeight(480);
+			stage.setMaxWidth(720);
+			stage.setMaxHeight(480);
+			stage.show();
+		});
+		
+		InfoHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+			/*skrytí menu*/
 			transition.setRate(transition.getRate() * -1);
 			transition.play();
 			drawer.toggle();
+			/*zobrazení v HTML*/
+			Stage stage = new Stage();
+			stage.setTitle("O hře");
+			WebView webview = new WebView();
+			webview.getEngine().load(Application.class.getResource("html/hra.html").toExternalForm());
+			stage.setScene(new Scene(webview, 720, 480));
+			stage.setMinWidth(720);
+			stage.setMinHeight(480);
+			stage.setMaxWidth(720);
+			stage.setMaxHeight(480);
+			stage.show();
 		});
 
 		NovaHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
