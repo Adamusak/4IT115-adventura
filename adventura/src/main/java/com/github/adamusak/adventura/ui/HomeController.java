@@ -8,6 +8,7 @@ import java.util.Observer;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
 import com.github.adamusak.adventura.logika.Vec;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
@@ -36,9 +37,13 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	private JFXListView<Prostor> seznamVychodu;
 	@FXML
+	private JFXListView<String> Batoh;
+	@FXML
 	private ImageView uzivatel;
 	@FXML
 	private JFXHamburger hamburger;
+	@FXML
+	private JFXButton Napoveda;
 	@FXML
 	JFXDrawer drawer;
 
@@ -73,33 +78,20 @@ public class HomeController extends GridPane implements Observer {
 		vystup.appendText("\n\n-------" + input + "-------\n");
 		vystup.appendText(vystupPrikazu);
 	}
-	/*
 	@FXML
-	public void Menu() {
-			
-			
-			if (drawer.isVisible()) {
-				//drawer.setDefaultDrawerSize(0);
-				//System.out.println("0");
-			}
-			else {
-				//drawer.setDefaultDrawerSize(40);
-				//System.out.println("40");
-			}
+	public void Napoveda() {
+		/*String input = ("napoveda");
+		String vystupPrikazu = hra.zpracujPrikaz(input);
+		vystup.appendText("\n\n-------" + input + "-------\n");
+		vystup.appendText(vystupPrikazu);
+		
+		HamburgerBasicCloseTransition zavrit = new HamburgerBasicCloseTransition(hamburger);
+		zavrit.setRate(0);
+
+		zavrit.play();
+		drawer.toggle();*/
 	}
-	
-	@FXML
-	public void MenuOpen() {
-			//drawer.setDefaultDrawerSize(40);
-			//drawer.setOpacity(0);
-	}
-	@FXML
-	public void MenuClose() {
-			//drawer.setDefaultDrawerSize(0);
-			//drawer.setOpacity(100);
-	}
-	*/
-	
+
 
 	/**
 	 * Metoda bude soužit pro předání objektu se spuštěnou hrou kontroleru a zobrazí
@@ -127,10 +119,17 @@ public class HomeController extends GridPane implements Observer {
 		        transition.setRate(transition.getRate()*-1);
 		        transition.play();
 		        drawer.toggle();
-		        //drawer.setDefaultDrawerSize(0);
 		});
 		
-		
+		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED,(e)->{
+			String input = ("napoveda");
+			String vystupPrikazu = hra.zpracujPrikaz(input);
+			vystup.appendText("\n\n-------" + input + "-------\n");
+			vystup.appendText(vystupPrikazu);
+			transition.setRate(transition.getRate()*-1);
+	        transition.play();
+	        drawer.toggle();
+	});
 	}
 
 	@Override
@@ -142,6 +141,12 @@ public class HomeController extends GridPane implements Observer {
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 
+		String vystupPrikazu = hra.zpracujPrikaz("obsahBatohu");
+		String[] ItemyBatohu = vystupPrikazu.split(":");
+		Batoh.getItems().clear();
+		if (ItemyBatohu[1].contains(", ")) {
+			String[] Itemy = ItemyBatohu[1].split(", ");
+			Batoh.getItems().addAll(Itemy);
+		}
 	}
-
 }
