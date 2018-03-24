@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 /**
@@ -107,16 +108,26 @@ public class HomeController extends GridPane implements Observer {
 
 	@FXML
 	public void Napoveda() {
-		/*
-		 * String input = ("napoveda"); String vystupPrikazu = hra.zpracujPrikaz(input);
-		 * vystup.appendText("\n\n-------" + input + "-------\n");
-		 * vystup.appendText(vystupPrikazu);
-		 * 
-		 * HamburgerBasicCloseTransition zavrit = new
-		 * HamburgerBasicCloseTransition(hamburger); zavrit.setRate(0);
-		 * 
-		 * zavrit.play(); drawer.toggle();
-		 */
+		/* zobrazení v textarea */
+		String input = ("napoveda");
+		String vystupPrikazu = hra.zpracujPrikaz(input);
+		vystup.appendText("\n\n-------" + input + "-------\n");
+		vystup.appendText(vystupPrikazu);
+		HamburgerBasicCloseTransition zavrit = new HamburgerBasicCloseTransition(hamburger);
+		zavrit.setRate(0);
+		zavrit.play();
+		drawer.toggle();
+		/* zobrazení v html */
+		Stage stage = new Stage();
+		stage.setTitle("Nápověda");
+		WebView webview = new WebView();
+		webview.getEngine().load(Application.class.getResource("html/napoveda.html").toExternalForm());
+		stage.setScene(new Scene(webview, 720, 480));
+		stage.setMinWidth(720);
+		stage.setMinHeight(480);
+		stage.setMaxWidth(720);
+		stage.setMaxHeight(480);
+		stage.show();
 	}
 
 	/**
