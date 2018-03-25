@@ -21,9 +21,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="scene" hgap="10.0" minHeight="300.0" minWidth="300.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/scene.css" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.adamusak.adventura.ui.HomeController">
+<GridPane fx:id="scene" hgap="10.0" minHeight="300.0" minWidth="300.0" prefHeight="720.0" prefWidth="1100.0" stylesheets="@css/scene.css" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.adamusak.adventura.ui.HomeController">
 	<columnConstraints>
-		<ColumnConstraints hgrow="ALWAYS" maxWidth="1920.0" minWidth="350.0" prefWidth="1280.0" />
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="1920.0" minWidth="350.0" prefWidth="1100.0" />
 	</columnConstraints>
 	<rowConstraints>
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="60.0" valignment="TOP" vgrow="NEVER" />
@@ -64,22 +64,22 @@
                <children>
                   <HBox id="Menu" alignment="CENTER" prefHeight="40.0" prefWidth="1180.0">
                      <children>
-                        <JFXButton id="MenuButton" accessibleText="Slouží ke spuštění nové hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nová hra" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="NovaHra" accessibleText="Slouží ke spuštění nové hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nová hra" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="Napoveda" accessibleText="Slouží k zobrazení nápovědy ke hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" onAction="#Napoveda" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nápověda" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="Napoveda" accessibleText="Slouží k zobrazení nápovědy ke hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nápověda" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" accessibleText="Slouží k zobrazení informací o hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="O hře" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="InfoHra" accessibleText="Slouží k zobrazení informací o hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="O hře" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="KonecHry" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
@@ -97,12 +97,12 @@
 					<children>
 						<ImageView fitHeight="250.0" fitWidth="250.0" layoutX="3.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/herniPlan.png" />
+								<Image url="@img/mapa.png" />
 							</image>
 						</ImageView>
-						<ImageView fx:id="uzivatel" fitHeight="42.0" fitWidth="54.0" layoutX="25.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fx:id="uzivatel" fitHeight="68.0" fitWidth="81.0" layoutX="1.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/Troll-face.sh.png" />
+								<Image url="@img/lokace.png" />
 							</image>
 						</ImageView>
 					</children>

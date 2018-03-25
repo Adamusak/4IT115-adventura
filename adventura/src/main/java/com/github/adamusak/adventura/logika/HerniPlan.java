@@ -34,10 +34,10 @@ public class HerniPlan extends Observable {
 	private void zalozProstoryHry() {
 		// vytvářejí se jednotlivé prostory
 		Prostor domecek = new Prostor("domeček", "domeček, ve kterém bydlí Karkulka", 0, 0);
-		Prostor chaloupka = new Prostor("chaloupka", "chaloupka, ve které bydlí babička Karkulky", 190, -30);
-		Prostor jeskyne = new Prostor("jeskyně", "stará plesnivá jeskyně", 130, 70);
-		Prostor les = new Prostor("les", "les s jahodami, malinami a pramenem vody", 70, -30);
-		Prostor hlubokyLes = new Prostor("hluboký_les", "temný les, ve kterém lze potkat vlka", 130, 10);
+		Prostor chaloupka = new Prostor("chaloupka", "chaloupka, ve které bydlí babička Karkulky", 171, -29);
+		Prostor jeskyne = new Prostor("jeskyně", "stará plesnivá jeskyně", 114, 61);
+		Prostor les = new Prostor("les", "les s jahodami, malinami a pramenem vody", 58, -29);
+		Prostor hlubokyLes = new Prostor("hluboký_les", "temný les, ve kterém lze potkat vlka", 114, 0);
 
 		// přiřazují se průchody mezi prostory (sousedící prostory)
 		domecek.setVychod(les);
