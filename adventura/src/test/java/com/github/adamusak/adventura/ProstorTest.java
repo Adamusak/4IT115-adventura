@@ -1,13 +1,13 @@
 package com.github.adamusak.adventura;
 
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.github.adamusak.adventura.logika.Prostor;
-
-import static org.junit.Assert.*;
 
 /*******************************************************************************
  * Testovací třída ProstorTest slouží ke komplexnímu otestování

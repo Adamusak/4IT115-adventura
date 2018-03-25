@@ -2,10 +2,10 @@ package com.github.adamusak.adventura.logika;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Trida Prostor - popisuje jednotlivé prostory (místnosti) hry

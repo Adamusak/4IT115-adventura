@@ -1,8 +1,8 @@
 package com.github.adamusak.adventura.logika;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
-import java.util.HashMap;
 
 /**
  * Trida Batoh

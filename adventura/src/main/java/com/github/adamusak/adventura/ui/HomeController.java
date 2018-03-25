@@ -2,10 +2,10 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.ui;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+
 import com.github.adamusak.adventura.logika.Hra;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
@@ -17,6 +17,7 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

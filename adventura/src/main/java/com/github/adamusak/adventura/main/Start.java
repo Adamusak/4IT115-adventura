@@ -2,7 +2,8 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.main;
 
-import com.github.adamusak.adventura.logika.*;
+import com.github.adamusak.adventura.logika.Hra;
+import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.uiText.TextoveRozhrani;
 
 /*******************************************************************************
