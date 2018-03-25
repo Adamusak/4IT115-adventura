@@ -2,6 +2,8 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.ui;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import com.github.adamusak.adventura.logika.Hra;
@@ -52,11 +54,15 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	private JFXButton InfoHra;
 	@FXML
+	private JFXButton ZmenaVzhledu;
+	@FXML
 	public JFXButton KonecHry;
 	@FXML
 	public JFXButton NovaHra;
 	@FXML
 	JFXDrawer drawer;
+	@FXML
+	GridPane scene;
 
 	private IHra hra;
 
@@ -144,6 +150,14 @@ public class HomeController extends GridPane implements Observer {
 			drawer.toggle();
 		});
 		/* Přidání funkcí tlačítkům */
+		ZmenaVzhledu.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+			try {
+				ZmenaCSS();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+        
+    });
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
@@ -166,7 +180,8 @@ public class HomeController extends GridPane implements Observer {
 			stage.setMaxHeight(480);
 			stage.show();
 		});
-
+		
+		
 		InfoHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
@@ -199,6 +214,14 @@ public class HomeController extends GridPane implements Observer {
 		});
 	}
 
+	
+	private void ZmenaCSS() throws IOException{
+	    String css = Application.class.getResource("css/scene2.css").toExternalForm();
+	    scene.getStylesheets().clear();
+	    scene.getStylesheets().add(css);
+	    scene.applyCss();
+	}
+	
 	public void NoveOkno() throws Exception {
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader();
