@@ -109,4 +109,11 @@ public class Hra implements IHra {
 		return herniPlan;
 	}
 
+	
+	public Batoh getBatoh() {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
 }

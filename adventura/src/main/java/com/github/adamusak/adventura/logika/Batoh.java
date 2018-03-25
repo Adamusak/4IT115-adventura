@@ -1,6 +1,7 @@
 package com.github.adamusak.adventura.logika;
 
 import java.util.Map;
+import java.util.Observable;
 import java.util.HashMap;
 
 /**
@@ -11,12 +12,14 @@ import java.util.HashMap;
  * @version z kurzu 4IT101 pro školní rok 2014/2015
  */
 
-public class Batoh {
+public class Batoh extends Observable {
 	public static final int KAPACITA = 3;
 	private Map<String, Vec> seznamVeci; // seznam věcí v batohu
 
 	public Batoh() {
 		seznamVeci = new HashMap<String, Vec>();
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -27,6 +30,8 @@ public class Batoh {
 	 */
 	public void vlozVec(Vec vec) {
 		seznamVeci.put(vec.getJmeno(), vec);
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -39,6 +44,8 @@ public class Batoh {
 		for (String jmenoVeci : seznamVeci.keySet()) {
 			nazvy += jmenoVeci + ", ";
 		}
+		setChanged();
+		notifyObservers();
 		return nazvy;
 	}
 
@@ -55,6 +62,8 @@ public class Batoh {
 			nalezenaVec = seznamVeci.get(jmeno);
 			seznamVeci.remove(jmeno);
 		}
+		setChanged();
+		notifyObservers();
 		return nalezenaVec;
 	}
 

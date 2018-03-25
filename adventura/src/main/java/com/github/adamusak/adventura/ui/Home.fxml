@@ -97,12 +97,12 @@
 					<children>
 						<ImageView fitHeight="250.0" fitWidth="250.0" layoutX="3.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/herniPlan.png" />
+								<Image url="@img/mapa.png" />
 							</image>
 						</ImageView>
-						<ImageView fx:id="uzivatel" fitHeight="42.0" fitWidth="54.0" layoutX="25.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fx:id="uzivatel" fitHeight="68.0" fitWidth="81.0" layoutX="1.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/Troll-face.sh.png" />
+								<Image url="@img/lokace.png" />
 							</image>
 						</ImageView>
 					</children>

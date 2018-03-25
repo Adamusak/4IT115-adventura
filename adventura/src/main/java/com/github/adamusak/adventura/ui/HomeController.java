@@ -65,20 +65,24 @@ public class HomeController extends GridPane implements Observer {
 	 */
 	@FXML
 	public void odesliPrikaz() {
+		/* Zpracovává příkaz zadaný do příkazové řádky */
 		String vystupPrikazu = hra.zpracujPrikaz(vstupniText.getText());
 		vystup.appendText("\n\n-------" + vstupniText.getText() + "-------\n");
 		vystup.appendText(vystupPrikazu);
 		vstupniText.setText("");
-
+		/* Při vstupu se ptá jestli neskončila hra */
 		if (hra.konecHry()) {
 			vystup.appendText("\n\n-------Konec hry-------\n");
 			vstupniText.setDisable(true);
+			/* zobrazit nabídku na novou hru */
 		}
 	}
 
 	@FXML
 	public void Seber() {
+		/* Zpracovává příkaz při kliknutí na kontextové menu seber */
 		Vec koho = seznamVeciMistnost.getSelectionModel().getSelectedItem();
+		/* Kontroluje zda, je označený item, který se má sebrat */
 		if (koho == null) {
 			String vystupPrikazu = hra.zpracujPrikaz("seber");
 			vystup.appendText("\n\n-------seber-------\n");
@@ -88,14 +92,15 @@ public class HomeController extends GridPane implements Observer {
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
 			vystup.appendText(vystupPrikazu);
+			update(null, vystupPrikazu);
 		}
-		;
-
 	}
 
 	@FXML
 	public void Jdi() {
+		/* Zpracovává příkaz při kliknutí na kontextové menu jdi */
 		Prostor kam = seznamVychodu.getSelectionModel().getSelectedItem();
+		/* Kontroluje zda, je označené umístění, kam se má jít */
 		if (kam == null) {
 			String vystupPrikazu = hra.zpracujPrikaz("jdi");
 			vystup.appendText("\n\n-------jdi-------\n");
@@ -116,16 +121,20 @@ public class HomeController extends GridPane implements Observer {
 	 *            spuštěné hry
 	 */
 	public void inicializuj(IHra hra) {
+		/* Zavři menu */
 		drawer.open();
+		/* Nastav log */
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
+		/* Naplň listview */
 		this.hra = hra;
 		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+		/* Nastav mapu */
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 		hra.getHerniPlan().addObserver(this);
-
+		// hra.getBatoh().addObserver(this);
 		/* Nastavení animace pro menu ikony */
 		HamburgerBasicCloseTransition transition = new HamburgerBasicCloseTransition(hamburger);
 		transition.setRate(-1);
@@ -136,23 +145,16 @@ public class HomeController extends GridPane implements Observer {
 		});
 		/* Přidání funkcí tlačítkům */
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-			/*skrytí menu*/
+			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
 			transition.play();
 			drawer.toggle();
-			
-			/* zobrazení v textarea */
+			/* Zobrazení v textarea */
 			String input = ("napoveda");
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
 			vystup.appendText(vystupPrikazu);
-			/*HamburgerBasicCloseTransition zavrit = new HamburgerBasicCloseTransition(hamburger);
-			zavrit.setRate(-1);
-			zavrit.play();
-			drawer.toggle();*/
-			
-			
-			/* zobrazení v html */
+			/* Zobrazení v html */
 			Stage stage = new Stage();
 			stage.setTitle("Nápověda");
 			WebView webview = new WebView();
@@ -164,13 +166,13 @@ public class HomeController extends GridPane implements Observer {
 			stage.setMaxHeight(480);
 			stage.show();
 		});
-		
+
 		InfoHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-			/*skrytí menu*/
+			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
 			transition.play();
 			drawer.toggle();
-			/*zobrazení v HTML*/
+			/* zobrazení v HTML */
 			Stage stage = new Stage();
 			stage.setTitle("O hře");
 			WebView webview = new WebView();
@@ -187,7 +189,6 @@ public class HomeController extends GridPane implements Observer {
 			try {
 				NoveOkno();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
@@ -222,7 +223,6 @@ public class HomeController extends GridPane implements Observer {
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
-
 		String vystupPrikazu = hra.zpracujPrikaz("obsahBatohu");
 		String[] ItemyBatohu = vystupPrikazu.split(":");
 		Batoh.getItems().clear();
