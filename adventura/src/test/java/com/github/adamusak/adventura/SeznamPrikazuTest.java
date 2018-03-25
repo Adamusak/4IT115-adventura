@@ -1,5 +1,7 @@
 package com.github.adamusak.adventura;
 
+import static org.junit.Assert.assertEquals;
+
 //import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,8 +10,6 @@ import com.github.adamusak.adventura.logika.Hra;
 import com.github.adamusak.adventura.logika.PrikazJdi;
 import com.github.adamusak.adventura.logika.PrikazKonec;
 import com.github.adamusak.adventura.logika.SeznamPrikazu;
-
-import static org.junit.Assert.*;
 
 /*******************************************************************************
  * Testovací třída SeznamPrikazuTest slouží ke komplexnímu otestování třídy  

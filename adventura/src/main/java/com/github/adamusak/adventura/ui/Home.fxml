@@ -64,7 +64,7 @@
                <children>
                   <HBox id="Menu" alignment="CENTER" prefHeight="40.0" prefWidth="1180.0">
                      <children>
-                        <JFXButton id="MenuButton" fx:id="NovaHra" accessibleText="Slouží ke spuštění nové hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nová hra" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="NovaHra" accessibleText="Slouží ke spuštění nové hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="103.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nová hra" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
@@ -74,12 +74,17 @@
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="InfoHra" accessibleText="Slouží k zobrazení informací o hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="O hře" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="InfoHra" accessibleText="Slouží k zobrazení informací o hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="73.0" prefHeight="39.0" prefWidth="150.0" ripplerFill="WHITE" text="O hře" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="KonecHry" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
+                        <JFXButton id="MenuButton" fx:id="ZmenaVzhledu" accessibleText="Slouží ke změně vzhledu okna" alignment="TOP_CENTER" maxWidth="550.0" minWidth="140.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Změnit vzhled" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton id="MenuButton" fx:id="KonecHry" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="108.0" prefHeight="39.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI Semibold" size="18.0" />
                            </font>
@@ -167,7 +172,7 @@
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem mnemonicParsing="false" text="Polož" />
+										<MenuItem mnemonicParsing="false" onAction="#Polož" text="Polož" />
 									</items>
 								</ContextMenu>
 							</contextMenu>
