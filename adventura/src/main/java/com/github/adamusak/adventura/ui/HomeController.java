@@ -101,6 +101,24 @@ public class HomeController extends GridPane implements Observer {
 			update(null, vystupPrikazu);
 		}
 	}
+	
+	@FXML
+	public void Polož() {
+		/* Zpracovává příkaz při kliknutí na kontextové menu seber */
+		String koho = Batoh.getSelectionModel().getSelectedItem();
+		/* Kontroluje zda, je označený item, který se má sebrat */
+		if (koho == null) {
+			String vystupPrikazu = hra.zpracujPrikaz("poloz");
+			vystup.appendText("\n\n-------poloz-------\n");
+			vystup.appendText(vystupPrikazu);
+		} else {
+			String input = ("poloz " + Batoh.selectionModelProperty().get().getSelectedItem().toString());
+			String vystupPrikazu = hra.zpracujPrikaz(input);
+			vystup.appendText("\n\n-------" + input + "-------\n");
+			vystup.appendText(vystupPrikazu);
+			update(null, vystupPrikazu);
+		}
+	}
 
 	@FXML
 	public void Jdi() {

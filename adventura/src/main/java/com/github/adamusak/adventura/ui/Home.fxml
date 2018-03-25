@@ -172,7 +172,7 @@
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem mnemonicParsing="false" text="Polož" />
+										<MenuItem mnemonicParsing="false" onAction="#Polož" text="Polož" />
 									</items>
 								</ContextMenu>
 							</contextMenu>
