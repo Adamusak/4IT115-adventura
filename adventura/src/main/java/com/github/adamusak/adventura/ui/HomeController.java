@@ -5,7 +5,6 @@ package com.github.adamusak.adventura.ui;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-
 import com.github.adamusak.adventura.logika.Hra;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
@@ -17,7 +16,6 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -51,15 +49,7 @@ public class HomeController extends GridPane implements Observer {
 	@FXML
 	private JFXHamburger hamburger;
 	@FXML
-	private JFXButton Napoveda;
-	@FXML
-	private JFXButton InfoHra;
-	@FXML
-	private JFXButton ZmenaVzhledu;
-	@FXML
-	public JFXButton KonecHry;
-	@FXML
-	public JFXButton NovaHra;
+	private JFXButton Napoveda, InfoHra, ZmenaVzhledu, KonecHry, NovaHra;
 	@FXML
 	JFXDrawer drawer;
 	@FXML
@@ -102,7 +92,7 @@ public class HomeController extends GridPane implements Observer {
 			update(null, vystupPrikazu);
 		}
 	}
-	
+
 	@FXML
 	public void Polož() {
 		/* Zpracovává příkaz při kliknutí na kontextové menu seber */
@@ -175,8 +165,8 @@ public class HomeController extends GridPane implements Observer {
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
-        
-    });
+
+		});
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
@@ -199,8 +189,7 @@ public class HomeController extends GridPane implements Observer {
 			stage.setMaxHeight(480);
 			stage.show();
 		});
-		
-		
+
 		InfoHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
@@ -233,14 +222,13 @@ public class HomeController extends GridPane implements Observer {
 		});
 	}
 
-	
-	private void ZmenaCSS() throws IOException{
-	    String css = Application.class.getResource("css/scene2.css").toExternalForm();
-	    scene.getStylesheets().clear();
-	    scene.getStylesheets().add(css);
-	    scene.applyCss();
+	private void ZmenaCSS() throws IOException {
+		String css = Application.class.getResource("css/scene2.css").toExternalForm();
+		scene.getStylesheets().clear();
+		scene.getStylesheets().add(css);
+		scene.applyCss();
 	}
-	
+
 	public void NoveOkno() throws Exception {
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader();
@@ -270,6 +258,9 @@ public class HomeController extends GridPane implements Observer {
 		Batoh.getItems().clear();
 		if (ItemyBatohu[1].contains(", ")) {
 			String[] Itemy = ItemyBatohu[1].split(", ");
+			/*
+			 * for (String Item : Itemy) { Batoh.getItems().addAll(Item); }
+			 */
 			Batoh.getItems().addAll(Itemy);
 		}
 	}

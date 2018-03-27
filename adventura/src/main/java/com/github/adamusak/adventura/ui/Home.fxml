@@ -21,91 +21,127 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="scene" hgap="10.0" minHeight="300.0" minWidth="300.0" prefHeight="720.0" prefWidth="1100.0" stylesheets="@css/scene.css" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.adamusak.adventura.ui.HomeController">
+<GridPane fx:id="scene" hgap="10.0" minHeight="300.0" minWidth="300.0"
+	prefHeight="720.0" prefWidth="1100.0" stylesheets="@css/scene.css"
+	vgap="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.github.adamusak.adventura.ui.HomeController">
 	<columnConstraints>
-		<ColumnConstraints hgrow="ALWAYS" maxWidth="1920.0" minWidth="350.0" prefWidth="1100.0" />
+		<ColumnConstraints hgrow="ALWAYS" maxWidth="1920.0"
+			minWidth="700.0" prefWidth="1100.0" />
 	</columnConstraints>
 	<rowConstraints>
-      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="60.0" valignment="TOP" vgrow="NEVER" />
-		<RowConstraints minHeight="270.0" prefHeight="500.0" valignment="CENTER" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="BOTTOM" vgrow="NEVER" />
+		<RowConstraints maxHeight="1.7976931348623157E308"
+			minHeight="100.0" prefHeight="60.0" valignment="TOP" vgrow="NEVER" />
+		<RowConstraints minHeight="270.0" prefHeight="500.0"
+			valignment="CENTER" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="50.0" minHeight="50.0"
+			prefHeight="50.0" valignment="BOTTOM" vgrow="NEVER" />
 	</rowConstraints>
 	<children>
-      <VBox id="TopRow" maxHeight="60.0" prefHeight="60.0" prefWidth="100.0">
-         <children>
-            <HBox id="Header" fx:id="Header" prefHeight="30.0" prefWidth="200.0">
-               <children>
-      						<JFXHamburger id="HeaderHamburger" fx:id="hamburger" alignment="CENTER" maxHeight="30.0" maxWidth="35.0" prefHeight="30.0" prefWidth="35.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </JFXHamburger>
-                  <Label id="Name" contentDisplay="CENTER" maxHeight="30.0" prefHeight="30.0" text="Adventura" textFill="WHITE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </HBox>
-      		
-      		<JFXDrawer id="MenuDrawer" fx:id="drawer" defaultDrawerSize="40.0" direction="BOTTOM" layoutY="-40.0" maxHeight="40.0" minHeight="40.0" overLayVisible="false" pickOnBounds="false" prefHeight="40.0">
-               <children>
-                  <HBox id="Menu" alignment="CENTER" prefHeight="40.0" prefWidth="1180.0">
-                     <children>
-                        <JFXButton id="MenuButton" fx:id="NovaHra" accessibleText="Slouží ke spuštění nové hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="103.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nová hra" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="Napoveda" accessibleText="Slouží k zobrazení nápovědy ke hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Nápověda" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="InfoHra" accessibleText="Slouží k zobrazení informací o hře" alignment="TOP_CENTER" maxWidth="550.0" minWidth="73.0" prefHeight="39.0" prefWidth="150.0" ripplerFill="WHITE" text="O hře" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="ZmenaVzhledu" accessibleText="Slouží ke změně vzhledu okna" alignment="TOP_CENTER" maxWidth="550.0" minWidth="140.0" prefHeight="30.0" prefWidth="150.0" ripplerFill="WHITE" text="Změnit vzhled" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton id="MenuButton" fx:id="KonecHry" accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER" maxWidth="550.0" minWidth="108.0" prefHeight="39.0" prefWidth="150.0" ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Semibold" size="18.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-               </children>
-            </JFXDrawer>
-         </children>
-      </VBox>
+		<VBox id="TopRow" maxHeight="60.0" prefHeight="60.0" prefWidth="100.0">
+			<children>
+				<HBox id="Header" prefHeight="30.0" prefWidth="200.0">
+					<children>
+						<JFXHamburger id="HeaderHamburger" fx:id="hamburger"
+							alignment="CENTER" maxHeight="30.0" maxWidth="35.0" prefHeight="30.0"
+							prefWidth="35.0">
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<HBox.margin>
+								<Insets />
+							</HBox.margin>
+						</JFXHamburger>
+						<Label id="Name" contentDisplay="CENTER" maxHeight="30.0"
+							prefHeight="30.0" text="Adventura" textFill="WHITE">
+							<font>
+								<Font name="Segoe UI Semibold" size="20.0" />
+							</font>
+							<HBox.margin>
+								<Insets left="10.0" />
+							</HBox.margin>
+						</Label>
+					</children>
+					<VBox.margin>
+						<Insets top="5.0" />
+					</VBox.margin>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+				</HBox>
 
-		<JFXMasonryPane HSpacing="10.0" VSpacing="10.0" cellHeight="250.0" cellWidth="250.0" centerShape="true" focusTraversable="true" limitColumn="6" limitRow="6" maxWidth="1920.0" minHeight="250.0" minWidth="250.0" prefWidth="1920.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE">
+				<JFXDrawer id="MenuDrawer" fx:id="drawer"
+					defaultDrawerSize="40.0" direction="BOTTOM" layoutY="-40.0"
+					maxHeight="40.0" minHeight="40.0" overLayVisible="false"
+					pickOnBounds="false" prefHeight="40.0">
+					<children>
+						<HBox id="Menu" alignment="CENTER" prefHeight="40.0"
+							prefWidth="1180.0">
+							<children>
+								<JFXButton id="MenuButton" fx:id="NovaHra"
+									accessibleText="Slouží ke spuštění nové hry" alignment="TOP_CENTER"
+									maxWidth="550.0" minWidth="103.0" prefHeight="30.0" prefWidth="150.0"
+									ripplerFill="WHITE" text="Nová hra" textFill="WHITE">
+									<font>
+										<Font name="Segoe UI Semibold" size="18.0" />
+									</font>
+								</JFXButton>
+								<JFXButton id="MenuButton" fx:id="Napoveda"
+									accessibleText="Slouží k zobrazení nápovědy ke hře" alignment="TOP_CENTER"
+									maxWidth="550.0" minWidth="110.0" prefHeight="30.0" prefWidth="150.0"
+									ripplerFill="WHITE" text="Nápověda" textFill="WHITE">
+									<font>
+										<Font name="Segoe UI Semibold" size="18.0" />
+									</font>
+								</JFXButton>
+								<JFXButton id="MenuButton" fx:id="InfoHra"
+									accessibleText="Slouží k zobrazení informací o hře" alignment="TOP_CENTER"
+									maxWidth="550.0" minWidth="73.0" prefHeight="39.0" prefWidth="150.0"
+									ripplerFill="WHITE" text="O hře" textFill="WHITE">
+									<font>
+										<Font name="Segoe UI Semibold" size="18.0" />
+									</font>
+								</JFXButton>
+								<JFXButton id="MenuButton" fx:id="ZmenaVzhledu"
+									accessibleText="Slouží ke změně vzhledu okna" alignment="TOP_CENTER"
+									maxWidth="550.0" minWidth="140.0" prefHeight="30.0" prefWidth="150.0"
+									ripplerFill="WHITE" text="Změnit vzhled" textFill="WHITE">
+									<font>
+										<Font name="Segoe UI Semibold" size="18.0" />
+									</font>
+								</JFXButton>
+								<JFXButton id="MenuButton" fx:id="KonecHry"
+									accessibleText="Slouží k ukončení hry" alignment="TOP_CENTER"
+									maxWidth="550.0" minWidth="108.0" prefHeight="39.0" prefWidth="150.0"
+									ripplerFill="WHITE" text="Konec hry" textFill="WHITE">
+									<font>
+										<Font name="Segoe UI Semibold" size="18.0" />
+									</font>
+								</JFXButton>
+							</children>
+						</HBox>
+					</children>
+				</JFXDrawer>
+			</children>
+		</VBox>
+
+		<JFXMasonryPane HSpacing="10.0" VSpacing="10.0"
+			cellHeight="250.0" cellWidth="250.0" centerShape="true"
+			focusTraversable="true" limitColumn="6" limitRow="6" maxWidth="1920.0"
+			minHeight="250.0" minWidth="250.0" prefWidth="1920.0"
+			GridPane.halignment="CENTER" GridPane.rowIndex="1"
+			GridPane.valignment="BASELINE">
 			<children>
 				<AnchorPane prefHeight="250.0" prefWidth="250.0">
 					<children>
-						<ImageView fitHeight="250.0" fitWidth="250.0" layoutX="3.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fitHeight="250.0" fitWidth="250.0" layoutX="3.0"
+							layoutY="37.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@img/mapa.png" />
 							</image>
 						</ImageView>
-						<ImageView fx:id="uzivatel" fitHeight="68.0" fitWidth="81.0" layoutX="1.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fx:id="uzivatel" fitHeight="68.0" fitWidth="81.0"
+							layoutX="1.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@img/lokace.png" />
 							</image>
@@ -115,40 +151,20 @@
 
 				<VBox alignment="CENTER" prefHeight="250.0" prefWidth="250.0">
 					<children>
-      						<Label id="ComponentName" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" text="Věci v místnosti" textAlignment="CENTER">
-      							<font>
-      								<Font name="Segoe UI" size="16.0" />
-      							</font>
-      						</Label>
-						<JFXListView fx:id="seznamVeciMistnost" depth="5" prefHeight="280.0" prefWidth="280.0" verticalGap="10.0" VBox.vgrow="NEVER">
-							<contextMenu>
-								<ContextMenu>
-									<items>
-										<MenuItem mnemonicParsing="false" onAction="#Seber" text="Seber" />
-									</items>
-								</ContextMenu>
-							</contextMenu>
-							<VBox.margin>
-								<Insets />
-							</VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-						</JFXListView>
-					</children>
-				</VBox>
-				<VBox alignment="CENTER" prefHeight="250.0" prefWidth="250.0">
-					<children>
-						<Label id="ComponentName" alignment="CENTER" contentDisplay="CENTER" text="Východy" textAlignment="CENTER" VBox.vgrow="NEVER">
+						<Label id="ComponentName" alignment="CENTER" contentDisplay="CENTER"
+							graphicTextGap="0.0" text="Věci v místnosti" textAlignment="CENTER">
 							<font>
 								<Font name="Segoe UI" size="16.0" />
 							</font>
 						</Label>
-						<JFXListView fx:id="seznamVychodu" depth="5" prefHeight="280.0" prefWidth="280.0" verticalGap="10.0" VBox.vgrow="NEVER">
+						<JFXListView fx:id="seznamVeciMistnost" depth="5"
+							prefHeight="280.0" prefWidth="280.0" verticalGap="10.0"
+							VBox.vgrow="NEVER">
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem mnemonicParsing="false" onAction="#Jdi" text="Jdi" />
+										<MenuItem mnemonicParsing="false" onAction="#Seber"
+											text="Seber" />
 									</items>
 								</ContextMenu>
 							</contextMenu>
@@ -163,16 +179,47 @@
 				</VBox>
 				<VBox alignment="CENTER" prefHeight="250.0" prefWidth="250.0">
 					<children>
-						<Label id="ComponentName" alignment="CENTER" contentDisplay="CENTER" text="Batoh" textAlignment="CENTER" VBox.vgrow="NEVER">
+						<Label id="ComponentName" alignment="CENTER" contentDisplay="CENTER"
+							text="Východy" textAlignment="CENTER" VBox.vgrow="NEVER">
 							<font>
 								<Font name="Segoe UI" size="16.0" />
 							</font>
 						</Label>
-						<JFXListView fx:id="Batoh" depth="5" prefHeight="280.0" prefWidth="280.0" verticalGap="10.0" VBox.vgrow="NEVER">
+						<JFXListView fx:id="seznamVychodu" depth="5"
+							prefHeight="280.0" prefWidth="280.0" verticalGap="10.0"
+							VBox.vgrow="NEVER">
 							<contextMenu>
 								<ContextMenu>
 									<items>
-										<MenuItem mnemonicParsing="false" onAction="#Polož" text="Polož" />
+										<MenuItem mnemonicParsing="false" onAction="#Jdi"
+											text="Jdi" />
+									</items>
+								</ContextMenu>
+							</contextMenu>
+							<VBox.margin>
+								<Insets />
+							</VBox.margin>
+							<padding>
+								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+							</padding>
+						</JFXListView>
+					</children>
+				</VBox>
+				<VBox alignment="CENTER" prefHeight="250.0" prefWidth="250.0">
+					<children>
+						<Label id="ComponentName" alignment="CENTER" contentDisplay="CENTER"
+							text="Batoh" textAlignment="CENTER" VBox.vgrow="NEVER">
+							<font>
+								<Font name="Segoe UI" size="16.0" />
+							</font>
+						</Label>
+						<JFXListView fx:id="Batoh" depth="5" prefHeight="280.0"
+							prefWidth="280.0" verticalGap="10.0" VBox.vgrow="NEVER">
+							<contextMenu>
+								<ContextMenu>
+									<items>
+										<MenuItem mnemonicParsing="false" onAction="#Polož"
+											text="Polož" />
 									</items>
 								</ContextMenu>
 							</contextMenu>
@@ -187,7 +234,10 @@
 				</VBox>
 				<VBox alignment="CENTER" prefHeight="250.0" prefWidth="500.0">
 					<children>
-						<JFXTextArea fx:id="vystup" editable="false" focusColor="#d23641" labelFloat="true" minHeight="240.0" minWidth="500.0" prefHeight="250.0" prefWidth="500.0" promptText="LOG" unFocusColor="#484043" VBox.vgrow="SOMETIMES">
+						<JFXTextArea fx:id="vystup" editable="false"
+							focusColor="#d23641" labelFloat="true" minHeight="240.0"
+							minWidth="500.0" prefHeight="250.0" prefWidth="500.0" promptText="LOG"
+							unFocusColor="#484043" VBox.vgrow="SOMETIMES">
 							<font>
 								<Font name="Segoe UI Semibold" size="12.0" />
 							</font>
@@ -205,14 +255,16 @@
 				<Insets />
 			</GridPane.margin>
 		</JFXMasonryPane>
-				<JFXTextField fx:id="vstupniText" focusColor="#d23641" labelFloat="true" onAction="#odesliPrikaz" prefWidth="1280.0" promptText="Zadej příkaz" unFocusColor="#484043" GridPane.rowIndex="2">
-					<font>
-						<Font name="Segoe UI Semibold" size="16.0" />
-					</font>
-         <GridPane.margin>
-            <Insets bottom="10.0" left="30.0" right="30.0" />
-         </GridPane.margin>
-				</JFXTextField>
+		<JFXTextField fx:id="vstupniText" focusColor="#d23641"
+			labelFloat="true" onAction="#odesliPrikaz" prefWidth="1280.0"
+			promptText="Zadej příkaz" unFocusColor="#484043" GridPane.rowIndex="2">
+			<font>
+				<Font name="Segoe UI Semibold" size="16.0" />
+			</font>
+			<GridPane.margin>
+				<Insets bottom="10.0" left="40.0" right="40.0" />
+			</GridPane.margin>
+		</JFXTextField>
 
 	</children>
 </GridPane>
