@@ -12,14 +12,14 @@
 
 /*Styl hlavičky i menu*/
 #TopRow{
-	-fx-background-color:-fx-c4;
+	-fx-background-color:-fx-c3;
 	-fx-font-size: 16px;
 	-fx-font-family: 'Segoe UI Semibold';
 }
 
 /*Styl menu*/
 #MenuDrawer{
-	-fx-background-color:-fx-c4;
+	-fx-background-color:-fx-c3;
 }
 
 

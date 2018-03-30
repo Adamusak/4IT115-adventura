@@ -183,10 +183,6 @@ public class HomeController extends GridPane implements Observer {
 			WebView webview = new WebView();
 			webview.getEngine().load(Application.class.getResource("html/napoveda.html").toExternalForm());
 			stage.setScene(new Scene(webview, 720, 480));
-			stage.setMinWidth(720);
-			stage.setMinHeight(480);
-			stage.setMaxWidth(720);
-			stage.setMaxHeight(480);
 			stage.show();
 		});
 
@@ -201,10 +197,6 @@ public class HomeController extends GridPane implements Observer {
 			WebView webview = new WebView();
 			webview.getEngine().load(Application.class.getResource("html/hra.html").toExternalForm());
 			stage.setScene(new Scene(webview, 720, 480));
-			stage.setMinWidth(720);
-			stage.setMinHeight(480);
-			stage.setMaxWidth(720);
-			stage.setMaxHeight(480);
 			stage.show();
 		});
 
