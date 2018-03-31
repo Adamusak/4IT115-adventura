@@ -7,6 +7,8 @@
 <?import com.jfoenix.controls.JFXMasonryPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
