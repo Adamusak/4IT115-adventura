@@ -5,6 +5,8 @@ package com.github.adamusak.adventura.ui;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
+
 import com.github.adamusak.adventura.logika.Hra;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
@@ -20,6 +22,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -153,18 +159,43 @@ public class HomeController extends GridPane implements Observer {
 		/* Nastavení animace pro menu ikony */
 		HamburgerBasicCloseTransition transition = new HamburgerBasicCloseTransition(hamburger);
 		transition.setRate(-1);
+		/* Přidání funkcí tlačítkům */
 		hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			transition.setRate(transition.getRate() * -1);
 			transition.play();
 			drawer.toggle();
 		});
-		/* Přidání funkcí tlačítkům */
 		ZmenaVzhledu.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-			try {
-				ZmenaCSS();
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Změna vzhledu");
+			alert.setHeaderText("Vyber požadovaný vzhled");
+			alert.setContentText("Barevné schéma");
+			ButtonType Schéma1 = new ButtonType("Červenošedá");
+			ButtonType Schéma2 = new ButtonType("Zelenožlutá");
+			ButtonType Zrušit = new ButtonType("Zrušit", ButtonData.CANCEL_CLOSE);
+			alert.getButtonTypes().setAll(Schéma1, Schéma2, Zrušit);
+			Optional<ButtonType> result = alert.showAndWait();
+			if (result.get() == Schéma1) {
+				String css = Application.class.getResource("css/scene.css").toExternalForm();
+				try {
+					ZmenaCSS(css);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			} else if (result.get() == Schéma2) {
+				String css = Application.class.getResource("css/scene2.css").toExternalForm();
+				try {
+					ZmenaCSS(css);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			} else {
+
 			}
+			/* Skrytí menu */
+			transition.setRate(transition.getRate() * -1);
+			transition.play();
+			drawer.toggle();
 
 		});
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
@@ -214,8 +245,7 @@ public class HomeController extends GridPane implements Observer {
 		});
 	}
 
-	private void ZmenaCSS() throws IOException {
-		String css = Application.class.getResource("css/scene2.css").toExternalForm();
+	private void ZmenaCSS(String css) throws IOException {
 		scene.getStylesheets().clear();
 		scene.getStylesheets().add(css);
 		scene.applyCss();
