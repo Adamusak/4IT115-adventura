@@ -1,19 +1,28 @@
 * {
-   -fx-c1: #6E6568; /*bila*/
-   -fx-c2: #EAD3A8; /*zlata*/
-   -fx-c3: #D23641; /*cervena*/
-   -fx-c4: #6E6568; /*seda*/
-   -fx-c5:  #484043; /*tmaveseda*/
+   -fx-c1: #FFFFFF; /*bila*/
+   -fx-c2: #C1DAD6; /*tyrkysova*/
+   -fx-c3: B7AFA3; /*tmave bezova*/
+   -fx-c4: #36494D; /*seda seda*/
+   -fx-c5: #6D929B; /*tmave tyrkysova*/
+
 }
 
 #scene{
 	-fx-background-color:-fx-c1;
 }
 
-/*Styl hlavičky */
+/*Styl hlavičky i menu*/
 #TopRow{
 	-fx-background-color:-fx-c4;
+	-fx-font-size: 16.0px;
+	-fx-font-family: 'Segoe UI Semibold';
 }
+
+/*Styl menu*/
+#MenuDrawer{
+	-fx-background-color:-fx-c4;
+}
+
 
 /*Hamburger*/
 .jfx-hamburger StackPane {
@@ -24,24 +33,26 @@
 	-fx-background-color: -fx-c2
 }
 
+
 /*Názvy (labely) jednotlivých komponent ve scéně */
 #ComponentName{
 	-fx-background-color:-fx-c1;
-	-fx-font-family: Segoe UI Semibold;
-	-fx-font-size: 19;
+	-fx-font-family: 'Segoe UI Semibold';
+	-fx-font-size: 18.0px;
 	-fx-text-fill: -fx-c5;
+
 }
 
 /*Ohraničení list-view */
 .jfx-list-view, .jfx-list-view:selected, .jfx-list-view:focused, .jfx-list-view:selected:focused{
 	-fx-border-color:-fx-c1;
-	-fx-focus-color: -fx-c5;
-	
+	-fx-focus-color: -fx-c1;
+	-fx-background-color: -fx-c1;
 }
 
-.list-cell:filled:selected:focused, .list-cell:filled:selected {
+
+.list-cell:filled:selected:focused {
 	-fx-background-color: -fx-c3;
-    /*-fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);*/
     -fx-text-fill: -fx-c1;
 }
 
@@ -49,13 +60,40 @@
     -fx-background-color: -fx-c4;
     -fx-text-fill: -fx-c1;
     -fx-alignment: center;
+    -fx-font-family: 'Segoe UI Semibold';
+	-fx-font-size: 16.0px;
+	-fx-padding: 2.0 2.0 2.0 2.0;
 }
 
 .list-cell:even { 
     -fx-background-color: -fx-c5;
 }
 
-.list-cell:filled:hover {
+.list-cell:hover {
     -fx-background-color: -fx-c2;
-    -fx-text-fill: -fx-c5;
+    -fx-text-fill: -fx-c4;
+}
+
+
+/*Kontextové menu */
+.context-menu, .menuitem {
+    -fx-background-color: -fx-c4;
+    -fx-padding: 2.0 2.0 2.0 2.0;
+    -fx-text-fill: -fx-c1;
+}
+
+.menu-item:hover, .menu-item:focused {
+    -fx-background-color: -fx-c2;
+}
+
+.menu-item >.label {
+	-fx-background-color: -fx-c4;
+    -fx-text-fill: -fx-c1;
+    -fx-font-size: 14.0px;
+	-fx-font-family: 'Segoe UI Semibold';
+}
+
+.menu-item:focused > .label {
+	-fx-background-color: -fx-c2;
+    -fx-text-fill: -fx-c4;
 }
