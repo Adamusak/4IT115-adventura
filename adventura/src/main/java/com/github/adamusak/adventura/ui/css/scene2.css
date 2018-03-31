@@ -1,9 +1,10 @@
 * {
    -fx-c1: #FFFFFF; /*bila*/
-   -fx-c2: #FFCC00; /*zlata*/
-   -fx-c3: #990033; /*cervena*/
-   -fx-c4: #CCCC99; /*seda*/
-   -fx-c5:  #666633; /*tmaveseda*/
+   -fx-c2: #C1DAD6; /*tyrkysova*/
+   -fx-c3: B7AFA3; /*tmave bezova*/
+   -fx-c4: #36494D; /*seda seda*/
+   -fx-c5: #6D929B; /*tmave tyrkysova*/
+
 }
 
 #scene{
@@ -52,7 +53,6 @@
 
 .list-cell:filled:selected:focused {
 	-fx-background-color: -fx-c3;
-    /*-fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);*/
     -fx-text-fill: -fx-c1;
 }
 
@@ -71,7 +71,7 @@
 
 .list-cell:hover {
     -fx-background-color: -fx-c2;
-    -fx-text-fill: -fx-c5;
+    -fx-text-fill: -fx-c4;
 }
 
 
@@ -95,5 +95,5 @@
 
 .menu-item:focused > .label {
 	-fx-background-color: -fx-c2;
-    -fx-text-fill: -fx-c5;
+    -fx-text-fill: -fx-c4;
 }

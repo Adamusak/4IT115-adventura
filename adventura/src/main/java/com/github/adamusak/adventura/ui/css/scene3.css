@@ -1,26 +1,25 @@
 * {
    -fx-c1: #FFFFFF; /*bila*/
-   -fx-c2: #EAD3A8; /*zlata*/
-   -fx-c3: #D23641; /*cervena*/
-   -fx-c4: #6E6568; /*seda*/
-   -fx-c5:  #484043; /*tmaveseda*/
+   -fx-c2: #C25B56; /*cerveno-hneda*/
+   -fx-c3: #96C0CE; /*tyrkysova*/
+   -fx-c4: #74828F; /*seda*/
+   -fx-c5:  #525564; /*tmave seda*/
 }
 
 #scene{
 	-fx-background-color:-fx-c1;
-	-fx-font-family: 'Segoe UI Semibold';
 }
 
 /*Styl hlavičky i menu*/
 #TopRow{
-	-fx-background-color:-fx-c3;
+	-fx-background-color:-fx-c4;
 	-fx-font-size: 16px;
 	-fx-font-family: 'Segoe UI Semibold';
 }
 
 /*Styl menu*/
 #MenuDrawer{
-	-fx-background-color:-fx-c3;
+	-fx-background-color:-fx-c4;
 }
 
 
@@ -72,14 +71,16 @@
 
 .list-cell:hover {
     -fx-background-color: -fx-c2;
-    -fx-text-fill: -fx-c5;
+    -fx-text-fill: -fx-c1;
 }
 
 
 /*Kontextové menu */
+.context-menu {
+    -fx-padding: 5 5 5 5;
+}
 .context-menu, .menuitem {
     -fx-background-color: -fx-c4;
-    -fx-padding: 2 2 2 2;
     -fx-text-fill: -fx-c1;
 }
 
@@ -96,5 +97,5 @@
 
 .menu-item:focused > .label {
 	-fx-background-color: -fx-c2;
-    -fx-text-fill: -fx-c5;
+    -fx-text-fill: -fx-c1;
 }

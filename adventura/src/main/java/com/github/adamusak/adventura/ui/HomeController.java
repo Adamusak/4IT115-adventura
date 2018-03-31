@@ -2,6 +2,7 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.ui;
 
+import java.awt.Label;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -12,12 +13,17 @@ import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
 import com.github.adamusak.adventura.logika.Vec;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,8 +35,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * Kontroler, který zprostředkovává komunikaci mezi grafikou a logikou adventury
@@ -60,8 +69,12 @@ public class HomeController extends GridPane implements Observer {
 	JFXDrawer drawer;
 	@FXML
 	GridPane scene;
+	@FXML
+	StackPane dialog;
 
 	private IHra hra;
+	private double xOffset = 0;
+	private double yOffset = 0;
 
 	/**
 	 * metoda čte příkaz ze vstupního textového pole a zpracuje ho
@@ -134,6 +147,81 @@ public class HomeController extends GridPane implements Observer {
 		}
 	}
 
+	@FXML
+	public void ZmenaSchema() {
+		/* Stisknutí tlačítka Změna vzhledu */
+		/* Převeď StackPane do popředí */
+		dialog.toFront();
+		/* Nastav nový dialog */
+		JFXDialogLayout obsah = new JFXDialogLayout();
+		obsah.setHeading(new Text("Výběr vzhledu"));
+		obsah.setBody(new Text("K výběru je z následujících následujících barevných schémat"));
+		JFXDialog vyber = new JFXDialog(dialog, obsah, JFXDialog.DialogTransition.CENTER);
+		/* Nastav tlačítko 1 */
+		JFXButton Schéma1 = new JFXButton("Červeno-šedé");
+		Schéma1.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				vyber.close();
+				String css = Application.class.getResource("css/scene.css").toExternalForm();
+				try {
+					ZmenaCSS(css);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		/* Nastav tlačítko 2 */
+		JFXButton Schéma2 = new JFXButton("Tyrkysové");
+		Schéma2.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				vyber.close();
+				String css = Application.class.getResource("css/scene2.css").toExternalForm();
+				try {
+					ZmenaCSS(css);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		/* Nastav tlačítko 3 */
+		JFXButton Schéma3 = new JFXButton("Šedé");
+		Schéma3.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				vyber.close();
+				String css = Application.class.getResource("css/scene3.css").toExternalForm();
+				try {
+					ZmenaCSS(css);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		/* Nastav tlačítko 4 */
+		JFXButton Zrušit = new JFXButton("Zrušit");
+		Zrušit.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				vyber.close();
+			}
+		});
+		/* Nastav akce při otevření a zabření dialogu */
+		vyber.setOnDialogOpened(event -> {
+			/* Při otevření převeď StackPane do popředí */
+			dialog.toFront();
+		});
+		vyber.setOnDialogClosed(event -> {
+			/* Při zavření převeď StackPane do pozadí */
+			dialog.toBack();
+		});
+		/* Přidej tlačítka do dialogu */
+		obsah.setActions(Schéma1, Schéma2, Schéma3, Zrušit);
+		/* Zobraz dialog */
+		vyber.show();
+	}
+
 	/**
 	 * Metoda bude soužit pro předání objektu se spuštěnou hrou kontroleru a zobrazí
 	 * stav hry v grafice.
@@ -165,39 +253,7 @@ public class HomeController extends GridPane implements Observer {
 			transition.play();
 			drawer.toggle();
 		});
-		ZmenaVzhledu.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Změna vzhledu");
-			alert.setHeaderText("Vyber požadovaný vzhled");
-			alert.setContentText("Barevné schéma");
-			ButtonType Schéma1 = new ButtonType("Červenošedá");
-			ButtonType Schéma2 = new ButtonType("Zelenožlutá");
-			ButtonType Zrušit = new ButtonType("Zrušit", ButtonData.CANCEL_CLOSE);
-			alert.getButtonTypes().setAll(Schéma1, Schéma2, Zrušit);
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == Schéma1) {
-				String css = Application.class.getResource("css/scene.css").toExternalForm();
-				try {
-					ZmenaCSS(css);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			} else if (result.get() == Schéma2) {
-				String css = Application.class.getResource("css/scene2.css").toExternalForm();
-				try {
-					ZmenaCSS(css);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			} else {
 
-			}
-			/* Skrytí menu */
-			transition.setRate(transition.getRate() * -1);
-			transition.play();
-			drawer.toggle();
-
-		});
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
@@ -253,6 +309,7 @@ public class HomeController extends GridPane implements Observer {
 
 	public void NoveOkno() throws Exception {
 		Stage stage = new Stage();
+		stage.initStyle(StageStyle.UNDECORATED);
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("Home.fxml"));
 		Parent root = loader.load();
@@ -265,6 +322,20 @@ public class HomeController extends GridPane implements Observer {
 		Stage stageold = (Stage) KonecHry.getScene().getWindow();
 		stage.show();
 		stageold.close();
+		root.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+			}
+		});
+		root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				stage.setX(event.getScreenX() - xOffset);
+				stage.setY(event.getScreenY() - yOffset);
+			}
+		});
 	}
 
 	@Override
