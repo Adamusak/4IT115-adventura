@@ -14,7 +14,7 @@
 /*Styl hlavičky i menu*/
 #TopRow{
 	-fx-background-color:-fx-c4;
-	-fx-font-size: 16px;
+	-fx-font-size: 16.0px;
 	-fx-font-family: 'Segoe UI Semibold';
 }
 
@@ -38,7 +38,7 @@
 #ComponentName{
 	-fx-background-color:-fx-c1;
 	-fx-font-family: 'Segoe UI Semibold';
-	-fx-font-size: 18px;
+	-fx-font-size: 18.0px;
 	-fx-text-fill: -fx-c5;
 
 }
@@ -61,8 +61,8 @@
     -fx-text-fill: -fx-c1;
     -fx-alignment: center;
     -fx-font-family: 'Segoe UI Semibold';
-	-fx-font-size: 16px;
-	-fx-padding: 2 2 2 2;
+	-fx-font-size: 16.0px;
+	-fx-padding: 2.0 2.0 2.0 2.0;
 }
 
 .list-cell:even { 
@@ -78,7 +78,7 @@
 /*Kontextové menu */
 .context-menu, .menuitem {
     -fx-background-color: -fx-c4;
-    -fx-padding: 2 2 2 2;
+    -fx-padding: 2.0 2.0 2.0 2.0;
     -fx-text-fill: -fx-c1;
 }
 
@@ -89,7 +89,7 @@
 .menu-item >.label {
 	-fx-background-color: -fx-c4;
     -fx-text-fill: -fx-c1;
-    -fx-font-size: 14px;
+    -fx-font-size: 14.0px;
 	-fx-font-family: 'Segoe UI Semibold';
 }
 

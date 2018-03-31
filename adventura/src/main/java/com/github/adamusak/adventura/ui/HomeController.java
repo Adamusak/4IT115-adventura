@@ -2,12 +2,9 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.adamusak.adventura.ui;
 
-import java.awt.Label;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Optional;
-
 import com.github.adamusak.adventura.logika.Hra;
 import com.github.adamusak.adventura.logika.IHra;
 import com.github.adamusak.adventura.logika.Prostor;
@@ -21,17 +18,12 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -207,7 +199,7 @@ public class HomeController extends GridPane implements Observer {
 				vyber.close();
 			}
 		});
-		/* Nastav akce při otevření a zabření dialogu */
+		/* Nastav akce při otevření a zavření dialogu */
 		vyber.setOnDialogOpened(event -> {
 			/* Při otevření převeď StackPane do popředí */
 			dialog.toFront();
@@ -247,19 +239,19 @@ public class HomeController extends GridPane implements Observer {
 		/* Nastavení animace pro menu ikony */
 		HamburgerBasicCloseTransition transition = new HamburgerBasicCloseTransition(hamburger);
 		transition.setRate(-1);
+		
 		/* Přidání funkcí tlačítkům */
 		hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			transition.setRate(transition.getRate() * -1);
 			transition.play();
 			drawer.toggle();
 		});
-
 		Napoveda.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
 			transition.play();
 			drawer.toggle();
-			/* Zobrazení v textarea */
+			/* Zobrazení v logu */
 			String input = ("napoveda");
 			String vystupPrikazu = hra.zpracujPrikaz(input);
 			vystup.appendText("\n\n-------" + input + "-------\n");
@@ -272,7 +264,11 @@ public class HomeController extends GridPane implements Observer {
 			stage.setScene(new Scene(webview, 720, 480));
 			stage.show();
 		});
-
+		ZmenaVzhledu.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+		transition.setRate(transition.getRate() * -1);
+		transition.play();
+		drawer.toggle();
+		});
 		InfoHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			/* Skrytí menu */
 			transition.setRate(transition.getRate() * -1);
@@ -286,7 +282,6 @@ public class HomeController extends GridPane implements Observer {
 			stage.setScene(new Scene(webview, 720, 480));
 			stage.show();
 		});
-
 		NovaHra.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			try {
 				NoveOkno();
@@ -294,19 +289,19 @@ public class HomeController extends GridPane implements Observer {
 				e1.printStackTrace();
 			}
 		});
-
 		KonecHry.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
 			Stage stage = (Stage) KonecHry.getScene().getWindow();
 			stage.close();
 		});
 	}
-
+	
+	
+	
 	private void ZmenaCSS(String css) throws IOException {
 		scene.getStylesheets().clear();
 		scene.getStylesheets().add(css);
 		scene.applyCss();
 	}
-
 	public void NoveOkno() throws Exception {
 		Stage stage = new Stage();
 		stage.initStyle(StageStyle.UNDECORATED);
@@ -337,7 +332,6 @@ public class HomeController extends GridPane implements Observer {
 			}
 		});
 	}
-
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		seznamVeciMistnost.getItems().clear();
